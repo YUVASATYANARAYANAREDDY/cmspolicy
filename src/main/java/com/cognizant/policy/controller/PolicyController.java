@@ -24,17 +24,18 @@ public class PolicyController {
 	PolicyService service;
 	
 	Logger logger = LoggerFactory.getLogger(PolicyController.class);
-	@GetMapping(value="/geteligibleclaimamount/{benefitId}")
-	public Integer getEligibleClaimAmount(@PathVariable("benefitId") String benefitId) throws PolicyNotFoundException {
+	@GetMapping(value="/getEligibleClaimAmount/{benefitId}")
+	public Integer getEligibleClaimAmount(@PathVariable("benefitId") String benefitId, 
+		@RequestHeader("Authorization") String token)throws PolicyNotFoundException {
 		return service.getEligibleClaimAmount(benefitId);
 	}
 	
-	@GetMapping(value="/geteligiblebenefits/{policyId}")
+	@GetMapping(value="/getEligibleBenefits/{policyId}")
 	public String getEligibleBenefits(@PathVariable("policyId") String policyId,
 			@RequestHeader("Authorization") String token) throws PolicyNotFoundException, TokenExpireException{
 		return service.getEligibleBenefits(policyId,token);
 	}
-	@GetMapping(value="/getchainofproviders/{policyId}")
+	@GetMapping(value="/getChainOfProviders/{policyId}")
 	public List<PolicyProvider> getChainOfProviders(@PathVariable("policyId") String policyId){
 		return service.getChainOfProviders(policyId);
 	}

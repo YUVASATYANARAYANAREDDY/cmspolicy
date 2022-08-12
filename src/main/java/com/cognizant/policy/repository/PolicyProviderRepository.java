@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.cognizant.policy.entity.PolicyProvider;
 
 public interface PolicyProviderRepository extends JpaRepository<PolicyProvider, String>{
-	@Query (value="select p from PolicyProvider p where p.policy_id=:pid")
+	@Query (value="select p from PolicyProvider p where p.policy_id like %:pid%")
     public List<PolicyProvider> getChainOfProviders(@Param("pid") String pid);
 	
 
