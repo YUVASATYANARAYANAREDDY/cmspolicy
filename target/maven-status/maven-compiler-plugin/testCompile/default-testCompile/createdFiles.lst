@@ -1,0 +1,3 @@
+com\cognizant\policy\PolicyMicroserviceApplicationTests.class
+com\cognizant\policy\service\PolicyServiceTest.class
+com\cognizant\policy\controller\PolicyControllerTest.class
